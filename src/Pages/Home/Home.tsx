@@ -45,7 +45,7 @@ export const HomePage: FC = () => {
 				</p>
 			</div>
 			<div className="home_pic">
-				<img src="/public/public.webp" width="800" height="450" alt="db" className="home_pic-img" aria-hidden="true" />
+				<img src="/public.webp" width="800" height="450" alt="db" className="home_pic-img" aria-hidden="true" />
 			</div>
 		</section>
 	);
