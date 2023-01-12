@@ -1,34 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import React from "react";
+// import "./App.css";
+import { Route, Routes } from "react-router-dom";
+
+import { Layout } from "./Components/Layout/Layout";
+import { HomePage } from "./Pages/Home/Home";
+import { ProductsPage } from "./Pages/Products/Products";
+import { DashboardPage } from "./Pages/Dashboard/Dashboard";
+import { SuppliersPage } from "./Pages/Suppliers/Suppliers";
+import { OrdersPage } from "./Pages/Orders/Orders";
+import { EmployeesPage } from "./Pages/Employees/Employees";
+import { CustomersPage } from "./Pages/Customers/Customers";
+import { SearchPage } from "./Pages/Search/Search";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+	return (
+		<Routes>
+			<Route path="/" element={<Layout />}>
+				<Route index element={<HomePage />} />
+				<Route path="/dashboard" element={<DashboardPage />} />
+				<Route path="/suppliers" element={<SuppliersPage />} />
+				<Route path="/products" element={<ProductsPage />} />
+				<Route path="/orders" element={<OrdersPage />} />
+				<Route path="/employees" element={<EmployeesPage />} />
+				<Route path="/customers" element={<CustomersPage />} />
+				<Route path="/search" element={<SearchPage />} />
+			</Route>
+		</Routes>
+	);
 }
 
-export default App
+export default App;

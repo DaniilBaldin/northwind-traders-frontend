@@ -1,0 +1,11 @@
+.clock {
+	text-align: justify;
+	font-size: x-small;
+	margin-left: 12px;
+}
+
+@media screen and (max-width: 1024px) {
+	.clock {
+		display: none;
+	}
+}
