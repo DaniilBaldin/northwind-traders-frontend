@@ -33,5 +33,5 @@ export const fetchHook = <T>(url: string) => {
 		apiRequest();
 	}, []);
 
-	return { loading, error, data };
+	return { loading, error, data, apiRequest };
 };

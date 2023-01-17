@@ -15,7 +15,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import LinkIcon from "@mui/icons-material/Link";
 
-import { Clock } from "../UI/Clock";
+import { Clock } from "../UI/Clock/Clock";
 
 export const Layout: FC = () => {
 	const [isOpenAside, setOpenAside] = useState(false);
