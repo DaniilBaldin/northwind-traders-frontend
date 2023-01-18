@@ -1,15 +1,20 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { FC, useEffect, useState } from "react";
-import "./Suppliers.css";
+import { Link, useSearchParams } from "react-router-dom";
 
 import { fetchHook } from "../../Components/Hooks/fetchHook";
 
 import { SuppliersResponse } from "../../Components/Types/Suppliers";
-import { Pagination } from "../../Components/UI/Pagination/Paginations";
+import { Pagination } from "../../Components/UI/Pagination/Pagination";
+
+import "./Suppliers.css";
 
 import RedoIcon from "@mui/icons-material/Redo";
 
 export const SuppliersPage: FC = () => {
-	const [page, setPage] = useState(1);
+	const [search] = useSearchParams();
+	const p: any = search.get("page");
+	const [page, setPage] = useState(parseInt(p) || 1);
 	const [pageCount, setPageCount] = useState(0);
 	const url = import.meta.env.VITE_BACKEND_URL;
 	const slug = `/suppliers?page=${page}`;
@@ -29,7 +34,7 @@ export const SuppliersPage: FC = () => {
 	}, [page]);
 
 	const handlePrevious = () => {
-		setPage((p: number) => {
+		setPage((p) => {
 			if (p === 1) return p;
 			return p - 1;
 		});
@@ -54,7 +59,7 @@ export const SuppliersPage: FC = () => {
 		<section>
 			<div className="table_container">
 				<div className="table_header">
-					<div>Suppliers</div>
+					<p>Suppliers</p>
 					<RedoIcon className="table_header-item" />
 				</div>
 				<table className="table">
@@ -77,7 +82,11 @@ export const SuppliersPage: FC = () => {
 										alt={`${e.ContactName.replace(/\s+/g, "-")}`}
 									/>
 								</td>
-								<td className="table_cell">{e.CompanyName}</td>
+								<td className="table_cell">
+									<Link className="table_link" to={`/supplier/${e.SupplierID}?page=${page}`}>
+										{e.CompanyName}
+									</Link>
+								</td>
 								<td className="table_cell">{e.ContactName}</td>
 								<td className="table_cell">{e.ContactTitle}</td>
 								<td className="table_cell">{e.City}</td>

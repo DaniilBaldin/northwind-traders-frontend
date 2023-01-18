@@ -7,7 +7,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import "./Pagination.css";
 
 type Pagination = {
-	currentPage: number;
+	currentPage: any;
 	maxPages: number;
 	handlePrevious: any;
 	handleNext: any;
@@ -22,13 +22,19 @@ export const Pagination: FC<Pagination> = ({ currentPage, maxPages, handlePrevio
 			</button>
 			<input
 				name="select"
+				pattern={`[1-${maxPages}]`}
 				className="pagination_input"
 				type="number"
 				min={1}
 				max={maxPages}
 				value={currentPage}
 				onChange={(event) => {
-					setPage(parseInt(event.target.value));
+					const q = parseInt(event.target.value);
+					if (q <= 0 || q > maxPages || Number.isNaN(q)) {
+						setPage(currentPage);
+					} else {
+						setPage(q);
+					}
 				}}
 			></input>
 			<button disabled={currentPage === maxPages} onClick={handleNext} className="pagination_button">

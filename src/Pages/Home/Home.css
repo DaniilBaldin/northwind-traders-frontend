@@ -20,15 +20,12 @@
 
 .home_link {
 	text-decoration: none;
-	color: rgb(73, 95, 192);
+	color: rgb(45, 72, 191);
 }
 
 .home_pic {
 	object-fit: scale-down;
 	float: right;
-	/* display: flex;
-	flex-direction: column; */
-	/* justify-content: flex-end; */
 }
 
 .home_pic-img {
