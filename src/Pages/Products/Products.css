@@ -1,5 +1,6 @@
 .table_container {
 	overflow-x: auto;
+	width: 100%;
 }
 
 .table {
@@ -53,71 +54,88 @@ tr:nth-child(even) {
 }
 
 @media screen and (max-width: 1024px) {
-	td,
-	tr {
+	.table_container {
+		overflow-x: hidden;
+		/* display: flexbox; */
+		width: 100%;
+		zoom: 80%;
+	}
+
+	.td,
+	.tr {
 		display: block;
 	}
 
-	thead tr {
+	.thead .tr {
 		position: absolute;
 		top: -9999px;
 		left: -9999px;
 	}
 
-	tr {
+	.tr {
 		border: 1px solid #f4f5f7;
 		text-align: center;
 	}
-	td img {
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-	}
 
-	td {
+	.td {
 		border: none;
 		border-bottom: none;
 		position: relative;
 		padding-left: 0px;
-		margin-left: 300px;
+		margin-left: 200px;
 		text-align: center;
 	}
-	td:before {
+	.td:before {
 		position: absolute;
 		left: 6px;
 		right: 30px;
 		width: 200px;
 		padding-right: 20px;
 		white-space: nowrap;
-		margin-left: -300px;
+		margin-left: -200px;
 		font-weight: 500;
 		text-align: left;
 	}
-	td:nth-of-type(2):before {
-		content: "Company";
+	.td:nth-of-type(1):before {
+		content: "Name";
 	}
-	td:nth-of-type(3):before {
-		content: "Contact";
+	.td:nth-of-type(2):before {
+		content: "Qt Per Unit";
 	}
-	td:nth-of-type(4):before {
-		content: "Title";
+	.td:nth-of-type(3):before {
+		content: "Price";
 	}
-	td:nth-of-type(5):before {
-		content: "City";
+	.td:nth-of-type(4):before {
+		content: "Stock";
 	}
-	td:nth-of-type(6):before {
-		content: "Country";
-	}
-
-	.table_image {
-		width: 96px;
-		height: 96px;
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
+	.td:nth-of-type(5):before {
+		content: "Orders";
 	}
 
 	.table_cell {
 		text-align: right;
+		text-overflow: ellipsis "[...]";
+	}
+
+	.table_link {
+		text-overflow: "-";
+	}
+}
+
+@media screen and (max-width: 420px) {
+	.table_container {
+		overflow-x: hidden;
+		/* display: flexbox; */
+		/* width: 100%; */
+		zoom: 60%;
+	}
+	.table_cell {
+		text-align: right;
+		font-size: 4vw;
+	}
+
+	.table_link {
+		text-align: center;
+		font-size: 4vw;
 	}
 }

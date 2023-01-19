@@ -76,16 +76,16 @@ export const ProductsPage = () => {
 					<tbody>
 						{data?.products.map((e) => (
 							<tr key={e.id}>
-								<td className="table_cell">
+								<td className="table_cell td">
 									<Link className="table_link" to={`/product/${e.ProductID}?page=${page}`}>
 										{" "}
 										{e.ProductName}
 									</Link>
 								</td>
-								<td className="table_cell"> {e.QuantityPerUnit}</td>
-								<td className="table_cell">${e.UnitPrice}</td>
-								<td className="table_cell"> {e.UnitsInStock}</td>
-								<td className="table_cell"> {e.UnitsOnOrder}</td>
+								<td className="table_cell td"> {e.QuantityPerUnit}</td>
+								<td className="table_cell td ">${e.UnitPrice}</td>
+								<td className="table_cell td "> {e.UnitsInStock}</td>
+								<td className="table_cell td"> {e.UnitsOnOrder}</td>
 							</tr>
 						))}
 					</tbody>
