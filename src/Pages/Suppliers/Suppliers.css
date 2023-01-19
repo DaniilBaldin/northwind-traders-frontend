@@ -119,7 +119,7 @@ tr:nth-child(even) {
 
 	.table_cell {
 		text-align: right;
-		font-size: 3vw;
+		/* font-size: 3vw; */
 	}
 }
 
@@ -131,11 +131,11 @@ tr:nth-child(even) {
 		zoom: 60%;
 	}
 	.table_cell {
-		font-size: 3vw;
+		font-size: 4vw;
 	}
 
 	.table_link {
 		text-align: left;
-		font-size: 3vw;
+		font-size: 4vw;
 	}
 }
