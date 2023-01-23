@@ -11,7 +11,9 @@ import { SuppliersPage } from "./Pages/Suppliers/Suppliers";
 import { SupplierDetailsPage } from "./Pages/Suppliers/SupplierDetails";
 import { OrdersPage } from "./Pages/Orders/Orders";
 import { EmployeesPage } from "./Pages/Employees/Employees";
+import { EmployeeDetailsPage } from "./Pages/Employees/EmployeeDetails";
 import { CustomersPage } from "./Pages/Customers/Customers";
+import { CustomerDetailsPage } from "./Pages/Customers/CustomerDetails";
 import { SearchPage } from "./Pages/Search/Search";
 
 function App() {
@@ -26,7 +28,9 @@ function App() {
 				<Route path="/product/:id" element={<ProductsDetailsPage />} />
 				<Route path="/orders" element={<OrdersPage />} />
 				<Route path="/employees" element={<EmployeesPage />} />
+				<Route path="/employee/:id" element={<EmployeeDetailsPage />} />
 				<Route path="/customers" element={<CustomersPage />} />
+				<Route path="/customer/:id" element={<CustomerDetailsPage />} />
 				<Route path="/search" element={<SearchPage />} />
 			</Route>
 		</Routes>

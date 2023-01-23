@@ -11,7 +11,7 @@ import "./ProductDetails.css";
 import BallotIcon from "@mui/icons-material/Ballot";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-export const ProductsDetailsPage = () => {
+export const ProductsDetailsPage: FC = () => {
 	const navigate = useNavigate();
 	const [search] = useSearchParams();
 	const { id } = useParams();

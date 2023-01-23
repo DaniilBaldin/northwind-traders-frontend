@@ -1,4 +1,4 @@
-.prdct_header {
+.empl_header {
 	font-size: 20px;
 	font-weight: 500;
 	display: flex;
@@ -15,7 +15,7 @@
 	border-left: 1px solid #f4f5f7;
 	border-right: 1px solid #f4f5f7;
 }
-.prdct_footer {
+.empl_footer {
 	font-size: 20px;
 	font-weight: 500;
 	display: flex;
@@ -52,7 +52,7 @@
 	border-right: 1px solid #f4f5f7;
 }
 
-.prdct_button {
+.empl_button {
 	display: inline-flex;
 	width: 30%;
 	height: 50px;
@@ -67,10 +67,10 @@
 	cursor: pointer;
 }
 
-.link {
+.empl_link {
 	text-decoration: none;
 	color: rgb(45, 72, 191);
 	font-size: medium;
-	margin-left: -10px;
+	/* margin-left: -10px; */
 	height: 20px;
 }

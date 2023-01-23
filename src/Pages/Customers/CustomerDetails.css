@@ -1,4 +1,4 @@
-.prdct_header {
+.cstmr_header {
 	font-size: 20px;
 	font-weight: 500;
 	display: flex;
@@ -15,7 +15,7 @@
 	border-left: 1px solid #f4f5f7;
 	border-right: 1px solid #f4f5f7;
 }
-.prdct_footer {
+.cstmr_footer {
 	font-size: 20px;
 	font-weight: 500;
 	display: flex;
@@ -52,7 +52,7 @@
 	border-right: 1px solid #f4f5f7;
 }
 
-.prdct_button {
+.cstmr_button {
 	display: inline-flex;
 	width: 30%;
 	height: 50px;
