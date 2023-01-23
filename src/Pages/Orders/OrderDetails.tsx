@@ -61,7 +61,13 @@ export const OrderDetailsPage: FC = () => {
 						<h3>Required Date</h3>
 						<p>{data?.order.RequiredDate.split(" ")[0]}</p>
 						<h3>Shipped Date</h3>
-						<p>{data?.order.ShippedDate.split(" ")[0]}</p>
+						<p>
+							<>
+								{data?.order.ShippedDate
+									? data?.order.ShippedDate.split(" ")[0]
+									: data?.order.RequiredDate.split(" ")[0]}
+							</>
+						</p>
 						<h3>Ship City</h3>
 						<p>{data?.order.ShipCity}</p>
 						<h3>Ship Region</h3>
