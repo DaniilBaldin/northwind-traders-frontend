@@ -1,0 +1,40 @@
+@media screen and (max-width: 1024px) {
+	.table-data-c {
+		border: none;
+		border-bottom: none;
+		position: relative;
+		padding-left: 0px;
+		margin-left: 200px;
+		text-align: center;
+	}
+	.table-data-c:before {
+		position: absolute;
+		left: 6px;
+		right: 30px;
+		width: 200px;
+		padding-right: 20px;
+		white-space: nowrap;
+		margin-left: -200px;
+		font-weight: 500;
+		text-align: left;
+	}
+	.table-data-c:nth-of-type(2):before {
+		content: "Company";
+	}
+	.table-data-c:nth-of-type(3):before {
+		content: "Contact";
+	}
+	.table-data-c:nth-of-type(4):before {
+		content: "Title";
+	}
+	.table-data-c:nth-of-type(5):before {
+		content: "City";
+	}
+	.table-data-c:nth-of-type(6):before {
+		content: "Phone";
+	}
+
+	.table_cell {
+		text-align: right;
+	}
+}

@@ -65,7 +65,7 @@ export const SuppliersPage: FC = () => {
 				<table className="table">
 					<thead>
 						<tr>
-							<th className="table_cell table_image"> </th>
+							<th className="table_cell table_image table_image-s"> </th>
 							<th className="table_cell">Company</th>
 							<th className="table_cell">Contact</th>
 							<th className="table_cell">Title</th>
@@ -76,7 +76,7 @@ export const SuppliersPage: FC = () => {
 					<tbody>
 						{data?.suppliers.map((e) => (
 							<tr key={e.id}>
-								<td className="table_image table_cell">
+								<td className=" table_cell table_image-s">
 									<img
 										src={`https://avatars.dicebear.com/v2/initials/${e.ContactName.replace(/\s+/g, "-")}.svg?radius=50`}
 										alt={`${e.ContactName.replace(/\s+/g, "-")}`}

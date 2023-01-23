@@ -10,6 +10,7 @@ import { DashboardPage } from "./Pages/Dashboard/Dashboard";
 import { SuppliersPage } from "./Pages/Suppliers/Suppliers";
 import { SupplierDetailsPage } from "./Pages/Suppliers/SupplierDetails";
 import { OrdersPage } from "./Pages/Orders/Orders";
+import { OrderDetailsPage } from "./Pages/Orders/OrderDetails";
 import { EmployeesPage } from "./Pages/Employees/Employees";
 import { EmployeeDetailsPage } from "./Pages/Employees/EmployeeDetails";
 import { CustomersPage } from "./Pages/Customers/Customers";
@@ -27,6 +28,7 @@ function App() {
 				<Route path="/products" element={<ProductsPage />} />
 				<Route path="/product/:id" element={<ProductsDetailsPage />} />
 				<Route path="/orders" element={<OrdersPage />} />
+				<Route path="/order/:id" element={<OrderDetailsPage />} />
 				<Route path="/employees" element={<EmployeesPage />} />
 				<Route path="/employee/:id" element={<EmployeeDetailsPage />} />
 				<Route path="/customers" element={<CustomersPage />} />

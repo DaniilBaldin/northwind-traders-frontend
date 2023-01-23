@@ -65,7 +65,7 @@ export const EmployeesPage: FC = () => {
 				<table className="table">
 					<thead>
 						<tr>
-							<th className="table_cell table_image"></th>
+							<th className="table_cell table_image table_image-s"></th>
 							<th className="table_cell">Name</th>
 							<th className="table_cell">Title</th>
 							<th className="table_cell">City</th>
@@ -76,21 +76,21 @@ export const EmployeesPage: FC = () => {
 					<tbody>
 						{data?.orders.map((e) => (
 							<tr key={e.EmployeeID}>
-								<td className="table_image table_cell">
+								<td className="table_image table_cell table_image-s">
 									<img
 										src={`https://avatars.dicebear.com/v2/initials/${e.FirstName}-${e.LastName}.svg?radius=50`}
 										alt={`${e.FirstName}-${e.LastName}`}
 									/>
 								</td>
-								<td className="table_cell">
+								<td className="table_cell table-data-e">
 									<Link className="table_link" to={`/employee/${e.EmployeeID}?page=${page}`}>
 										{e.FirstName} {e.LastName}
 									</Link>
 								</td>
-								<td className="table_cell">{e.Title}</td>
-								<td className="table_cell">{e.City}</td>
-								<td className="table_cell">{e.HomePhone}</td>
-								<td className="table_cell">{e.Country}</td>
+								<td className="table_cell table-data-e">{e.Title}</td>
+								<td className="table_cell table-data-e">{e.City}</td>
+								<td className="table_cell table-data-e">{e.HomePhone}</td>
+								<td className="table_cell table-data-e">{e.Country}</td>
 							</tr>
 						))}
 					</tbody>

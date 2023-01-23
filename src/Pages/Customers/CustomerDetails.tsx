@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { FC } from "react";
-import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 
 import { fetchHook } from "../../Components/Hooks/fetchHook";
 import { CustomerDetailsresponse } from "../../Components/Types/Customers";
@@ -9,7 +10,7 @@ import "./CustomerDetails.css";
 import BallotIcon from "@mui/icons-material/Ballot";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-export const CustomerDetailsPage = () => {
+export const CustomerDetailsPage: FC = () => {
 	const navigate = useNavigate();
 	const [search] = useSearchParams();
 	const { id } = useParams();
@@ -28,7 +29,7 @@ export const CustomerDetailsPage = () => {
 
 	return (
 		<section>
-			<div>
+			<div className="table_container">
 				<div className="cstmr_header">
 					<BallotIcon />
 					<p>Customer Information</p>
@@ -64,7 +65,7 @@ export const CustomerDetailsPage = () => {
 						className="cstmr_button"
 						type="button"
 						onClick={() => {
-							navigate(`/customers?page=${page}`);
+							!page ? navigate(-1) : navigate(`/customers?page=${page}`);
 						}}
 					>
 						<ArrowBackIcon />

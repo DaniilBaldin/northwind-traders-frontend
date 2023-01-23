@@ -6,7 +6,7 @@ import { fetchHook } from "../../Components/Hooks/fetchHook";
 import { Pagination } from "../../Components/UI/Pagination/Pagination";
 import { CustomersResponse } from "../../Components/Types/Customers";
 
-import "./Customers.css";
+// import "./Customers.css";
 
 import RedoIcon from "@mui/icons-material/Redo";
 
@@ -64,7 +64,7 @@ export const CustomersPage: FC = () => {
 				<table className="table">
 					<thead>
 						<tr>
-							<th className="table_cell table_image"></th>
+							<th className="table_cell table_image table_image-s"></th>
 							<th className="table_cell">Company</th>
 							<th className="table_cell">Contact</th>
 							<th className="table_cell">Title</th>
@@ -75,21 +75,21 @@ export const CustomersPage: FC = () => {
 					<tbody>
 						{data?.suppliers.map((e) => (
 							<tr key={e.id}>
-								<td className="table_image table_cell">
+								<td className="table_image table_cell table_image-s">
 									<img
 										src={`https://avatars.dicebear.com/v2/initials/${e.ContactName.replace(/\s+/g, "-")}.svg?radius=50`}
 										alt={`${e.ContactName.replace(/\s+/g, "-")}`}
 									/>
 								</td>
-								<td className="table_cell">
+								<td className="table_cell table-data-c">
 									<Link className="table_link" to={`/customer/${e.CustomerID}?page=${page}`}>
 										{e.CompanyName}
 									</Link>
 								</td>
-								<td className="table_cell">{e.ContactName}</td>
-								<td className="table_cell">{e.ContactTitle}</td>
-								<td className="table_cell">{e.City}</td>
-								<td className="table_cell">{e.Country}</td>
+								<td className="table_cell table-data-c">{e.ContactName}</td>
+								<td className="table_cell table-data-c">{e.ContactTitle}</td>
+								<td className="table_cell table-data-c">{e.City}</td>
+								<td className="table_cell table-data-c">{e.Country}</td>
 							</tr>
 						))}
 					</tbody>

@@ -53,6 +53,12 @@ tr:nth-child(even) {
 }
 
 @media screen and (max-width: 1024px) {
+	.table_container {
+		overflow-x: hidden;
+		width: 100%;
+		zoom: 80%;
+	}
+
 	td,
 	tr {
 		display: block;
@@ -109,7 +115,7 @@ tr:nth-child(even) {
 		content: "Country";
 	}
 
-	.table_image {
+	.table_image-s {
 		width: 96px;
 		height: 96px;
 		display: block;
@@ -119,14 +125,12 @@ tr:nth-child(even) {
 
 	.table_cell {
 		text-align: right;
-		/* font-size: 3vw; */
 	}
 }
 
 @media screen and (max-width: 420px) {
 	.table_container {
 		overflow-x: hidden;
-		/* display: flexbox; */
 		width: 100%;
 		zoom: 60%;
 	}

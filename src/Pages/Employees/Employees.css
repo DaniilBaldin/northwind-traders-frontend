@@ -1,148 +1,40 @@
-.table_container {
-	overflow-x: auto;
-}
-
-.table {
-	width: 100%;
-	border-collapse: collapse;
-	border-left: 1px solid #f4f5f7;
-	border-right: 1px solid #f4f5f7;
-	margin: 0 auto;
-	background-color: #ffffff;
-}
-
-.table_header {
-	display: flex;
-	width: 100%;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-	padding: 12px 14px;
-	background-color: #ffffff;
-	border: 1px solid #f4f5f7;
-	border-top-left-radius: 4px;
-	border-top-right-radius: 4px;
-	font-weight: 500;
-}
-
-.table_header-item {
-	left: 50px;
-}
-
-.table_cell {
-	text-align: left;
-	padding: 2px 6px;
-	height: 40px;
-}
-
-.table_image {
-	width: 35px;
-	vertical-align: middle;
-}
-.table_link {
-	text-decoration: none;
-	color: rgb(45, 72, 191);
-}
-
-tbody tr:hover {
-	background-color: rgb(248, 239, 232);
-}
-
-tr:nth-child(even) {
-	background-color: #fafafa;
-}
-
 @media screen and (max-width: 1024px) {
-	.table_container {
-		overflow-x: hidden;
-		/* display: flexbox; */
-		width: 100%;
-		zoom: 80%;
-	}
-
-	.td,
-	.tr {
-		display: block;
-	}
-
-	.thead .tr {
-		position: absolute;
-		top: -9999px;
-		left: -9999px;
-	}
-
-	.tr {
-		border: 1px solid #f4f5f7;
-		text-align: center;
-	}
-	.td .img {
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	.td {
+	.table-data-e {
 		border: none;
 		border-bottom: none;
 		position: relative;
 		padding-left: 0px;
-		margin-left: 300px;
+		margin-left: 200px;
 		text-align: center;
 	}
-	.td:before {
+	.table-data-e:before {
 		position: absolute;
 		left: 6px;
 		right: 30px;
 		width: 200px;
 		padding-right: 20px;
 		white-space: nowrap;
-		margin-left: -300px;
+		margin-left: -200px;
 		font-weight: 500;
 		text-align: left;
 	}
-	.td:nth-of-type(2):before {
+	.table-data-e:nth-of-type(2):before {
 		content: "Name";
 	}
-	.td:nth-of-type(3):before {
+	.table-data-e:nth-of-type(3):before {
 		content: "Title";
 	}
-	.td:nth-of-type(4):before {
+	.table-data-e:nth-of-type(4):before {
 		content: "City";
 	}
-	.td:nth-of-type(5):before {
+	.table-data-e:nth-of-type(5):before {
 		content: "Phone";
 	}
-	.td:nth-of-type(6):before {
+	.table-data-e:nth-of-type(6):before {
 		content: "Country";
 	}
 
-	.table_image {
-		width: 96px;
-		height: 96px;
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
 	.table_cell {
 		text-align: right;
-		/* font-size: 3vw; */
-	}
-}
-
-@media screen and (max-width: 420px) {
-	.table_container {
-		overflow-x: hidden;
-		/* display: flexbox; */
-		width: 100%;
-		zoom: 60%;
-	}
-	.table_cell {
-		font-size: 4vw;
-	}
-
-	.table_link {
-		text-align: right;
-		font-size: 4vw;
 	}
 }

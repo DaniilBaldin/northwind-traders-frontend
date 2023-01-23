@@ -1,5 +1,5 @@
 @media screen and (max-width: 1024px) {
-	.table-data-p {
+	.table-data-od {
 		border: none;
 		border-bottom: none;
 		position: relative;
@@ -7,7 +7,7 @@
 		margin-left: 200px;
 		text-align: center;
 	}
-	.table-data-p:before {
+	.table-data-od:before {
 		position: absolute;
 		left: 6px;
 		right: 30px;
@@ -18,19 +18,19 @@
 		font-weight: 500;
 		text-align: left;
 	}
-	.table-data-p:nth-of-type(1):before {
-		content: "Name";
+	.table-data-od:nth-of-type(1):before {
+		content: "Product";
 	}
-	.table-data-p:nth-of-type(2):before {
-		content: "Qt Per Unit";
+	.table-data-od:nth-of-type(2):before {
+		content: "Quantity";
 	}
-	.table-data-p:nth-of-type(3):before {
-		content: "Price";
+	.table-data-od:nth-of-type(3):before {
+		content: "Order Price";
 	}
-	.table-data-p:nth-of-type(4):before {
-		content: "Stock";
+	.table-data-od:nth-of-type(4):before {
+		content: "Total Price";
 	}
-	.table-data-p:nth-of-type(5):before {
-		content: "Orders";
+	.table-data-od:nth-of-type(5):before {
+		content: "Discount";
 	}
 }
