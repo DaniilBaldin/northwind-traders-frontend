@@ -64,7 +64,7 @@ export const ProductsDetailsPage: FC = () => {
 						className="prdct_button"
 						type="button"
 						onClick={() => {
-							navigate(`/products?page=${page}`);
+							!page ? navigate(-1) : navigate(`/products?page=${page}`);
 						}}
 					>
 						<ArrowBackIcon />
