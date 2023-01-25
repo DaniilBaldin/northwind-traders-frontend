@@ -82,7 +82,7 @@ export const CustomersPage: FC = () => {
 									/>
 								</td>
 								<td className="table_cell table-data-c">
-									<Link className="table_link" to={`/customer/${e.CustomerID}?page=${page}`}>
+									<Link className="table_link " to={`/customer/${e.CustomerID}?page=${page}`}>
 										{e.CompanyName}
 									</Link>
 								</td>

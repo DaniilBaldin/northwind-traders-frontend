@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -15,8 +15,6 @@ type Pagination = {
 };
 
 export const Pagination: FC<Pagination> = ({ currentPage, maxPages, handlePrevious, handleNext, setPage }) => {
-	const [value, setValue] = useState(currentPage);
-
 	return (
 		<div>
 			<div className="pagination_main">
@@ -27,15 +25,16 @@ export const Pagination: FC<Pagination> = ({ currentPage, maxPages, handlePrevio
 				<button disabled={currentPage === maxPages} onClick={handleNext} className="pagination_button">
 					<ArrowForwardIcon />
 				</button>
-				<p className="p">Total Pages: {maxPages}</p>
-				<div>
+				<div className="q">
+					<p className="p">Total Pages: {maxPages}</p>
+					<p className="p">Select Page:</p>
 					<input
 						name="select"
 						className="pagination_input"
 						type="number"
 						min={1}
 						max={maxPages}
-						// value={value}
+						// value={currentPage}
 						autoFocus={false}
 						placeholder="Page"
 						onChange={(event) => {

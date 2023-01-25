@@ -125,6 +125,7 @@ tr:nth-child(even) {
 
 	.table_cell {
 		text-align: right;
+		line-height: 15px;
 	}
 }
 
