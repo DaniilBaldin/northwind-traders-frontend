@@ -66,11 +66,3 @@
 	padding: 0;
 	cursor: pointer;
 }
-
-.link {
-	text-decoration: none;
-	color: rgb(45, 72, 191);
-	font-size: medium;
-	margin-left: -10px;
-	height: 20px;
-}

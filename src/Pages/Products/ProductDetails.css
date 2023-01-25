@@ -67,10 +67,10 @@
 	cursor: pointer;
 }
 
-.link {
+.prdct_link {
 	text-decoration: none;
 	color: rgb(45, 72, 191);
 	font-size: medium;
-	margin-left: -10px;
+	/* margin-left: -10px; */
 	height: 20px;
 }

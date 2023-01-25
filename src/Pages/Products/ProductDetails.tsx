@@ -40,7 +40,7 @@ export const ProductsDetailsPage: FC = () => {
 						<h3>Product Name</h3>
 						<p>{data?.ProductName}</p>
 						<h3>Supplier</h3>
-						<Link className="link" to={`/supplier/${data?.SupplierID}`}>
+						<Link className="prdct_link" to={`/supplier/${data?.SupplierID}`}>
 							{data?.SupplierName}
 						</Link>
 						<h3>Quantity Per Unit</h3>
