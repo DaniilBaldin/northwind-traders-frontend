@@ -21,18 +21,10 @@ export const Pagination: FC<Pagination> = ({ currentPage, maxPages, handlePrevio
 			pages.push(i);
 		}
 	} else {
-		pages.push(currentPage - 4);
-		pages.push(currentPage - 3);
-		pages.push(currentPage - 2);
-		pages.push(currentPage - 1);
-		pages.push(currentPage);
-		pages.push(currentPage + 1);
-		pages.push(currentPage + 2);
-		pages.push(currentPage + 3);
-		pages.push(currentPage + 4);
+		for (let i = currentPage - 4; i <= currentPage + 4; i++) {
+			pages.push(i);
+		}
 	}
-
-	console.log(pages);
 
 	return (
 		<div>
