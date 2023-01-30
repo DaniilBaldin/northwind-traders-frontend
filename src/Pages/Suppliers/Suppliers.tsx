@@ -33,20 +33,6 @@ export const SuppliersPage: FC = () => {
 		void getData();
 	}, [page]);
 
-	const handlePrevious = () => {
-		setPage((p) => {
-			if (p === 1) return p;
-			return p - 1;
-		});
-	};
-
-	const handleNext = () => {
-		setPage((p) => {
-			if (p === pageCount) return p;
-			return p + 1;
-		});
-	};
-
 	if (!data && loading) {
 		return <h4>Loading Suppliers Data.</h4>;
 	}
@@ -59,52 +45,45 @@ export const SuppliersPage: FC = () => {
 		<section>
 			<div className="table_container">
 				<div className="table_header">
-					<p>Suppliers</p>
+					<p className="h">Suppliers</p>
 					<RedoIcon className="table_header-item" />
 				</div>
 				<table className="table">
 					<thead>
 						<tr>
-							<th className="table_cell table_image table_image-s"> </th>
+							<th className="table_cell table_cell-image table_image table_image-s"> </th>
 							<th className="table_cell">Company</th>
 							<th className="table_cell">Contact</th>
 							<th className="table_cell">Title</th>
 							<th className="table_cell">City</th>
 							<th className="table_cell">Country</th>
+							<th className="table_cell"></th>
 						</tr>
 					</thead>
 					<tbody>
 						{data?.suppliers.map((e) => (
 							<tr key={e.id}>
-								<td className=" table_cell table_image-s">
+								<td className="table_cell table_image-s">
 									<img
 										src={`https://avatars.dicebear.com/v2/initials/${e.ContactName.replace(/\s+/g, "-")}.svg?radius=50`}
 										alt={`${e.ContactName.replace(/\s+/g, "-")}`}
 									/>
 								</td>
-								<td className="table_cell">
+								<td className="table_cell table_c">
 									<Link className="table_link" to={`/supplier/${e.SupplierID}?page=${page}`}>
 										{e.CompanyName}
 									</Link>
 								</td>
-								<td className="table_cell">{e.ContactName}</td>
-								<td className="table_cell">{e.ContactTitle}</td>
-								<td className="table_cell">{e.City}</td>
-								<td className="table_cell">{e.Country}</td>
+								<td className="table_cell table_c">{e.ContactName}</td>
+								<td className="table_cell table_c">{e.ContactTitle}</td>
+								<td className="table_cell table_c">{e.City}</td>
+								<td className="table_cell table_c">{e.Country}</td>
 							</tr>
 						))}
 					</tbody>
 				</table>
 			</div>
-			{
-				<Pagination
-					currentPage={page}
-					maxPages={pageCount}
-					handlePrevious={handlePrevious}
-					handleNext={handleNext}
-					setPage={setPage}
-				/>
-			}
+			{<Pagination currentPage={page} maxPages={pageCount} setPage={setPage} />}
 		</section>
 	);
 };

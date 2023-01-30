@@ -15,7 +15,7 @@
 }
 
 .sidebar_header {
-	background-color: rgb(5, 5, 53);
+	background-color: rgb(17 24 39);
 }
 
 .sidebar_title {
@@ -26,12 +26,12 @@
 }
 
 .sidebar_bold {
-	font-weight: 500;
+	font-weight: 600;
 }
 
 .sidebar_sub {
 	font-size: 12px;
-	line-height: 12px;
+	line-height: 16px;
 	font-weight: 400;
 	text-transform: uppercase;
 	color: #8b939f;
@@ -45,9 +45,9 @@
 	list-style-type: none;
 }
 
-.sidebar_li {
+/* .sidebar_li {
 	transition: background-color 0.2s ease;
-}
+} */
 
 .sidebar_li:hover {
 	background-color: #374151;
@@ -60,7 +60,7 @@
 .sidebar_link {
 	display: flex;
 	align-items: center;
-	gap: 15px;
+	gap: 12px;
 	color: #dee0e3;
 	text-decoration: none;
 	padding: 8px 12px;
@@ -86,16 +86,23 @@
 
 .header_side_menu {
 	display: flex;
+	flex-direction: row;
 	align-items: center;
-	gap: 5px;
+	gap: 2px;
 	font-size: 16px;
-	line-height: 20px;
+	line-height: 18px;
 	font-weight: 400;
+	margin-right: -5px;
 	background-color: transparent;
 	border-style: none;
-	padding: 0;
-	grid-template-columns: 240px;
-	margin-right: 1rem;
+	color: black;
+	cursor: pointer;
+}
+
+.hsm {
+	padding-left: 6px;
+	margin-right: -2px;
+	font-family: system-ui;
 }
 
 .header_side_menu--open {

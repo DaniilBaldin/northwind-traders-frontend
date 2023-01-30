@@ -34,20 +34,6 @@ export const ProductsPage = () => {
 		}
 	}, [data]);
 
-	const handlePrevious = () => {
-		setPage((p) => {
-			if (p === 1) return p;
-			return p - 1;
-		});
-	};
-
-	const handleNext = () => {
-		setPage((p) => {
-			if (p === pageCount) return p;
-			return p + 1;
-		});
-	};
-
 	if (!data && loading) {
 		return <h4>Loading Products Data.</h4>;
 	}
@@ -60,7 +46,7 @@ export const ProductsPage = () => {
 		<section>
 			<div className="table_container">
 				<div className="table_header">
-					<p>Products</p>
+					<p className="h">Products</p>
 					<RedoIcon className="table_header-item" />
 				</div>
 				<table className="table">
@@ -71,35 +57,28 @@ export const ProductsPage = () => {
 							<th className="table_cell">Price</th>
 							<th className="table_cell">Stock</th>
 							<th className="table_cell">Orders</th>
+							<th className="table_cell"></th>
 						</tr>
 					</thead>
 					<tbody>
 						{data?.products.map((e) => (
 							<tr key={e.id}>
-								<td className="table_cell table-data-p">
-									<Link className="table_link" to={`/product/${e.ProductID}?page=${page}`}>
+								<td className="table_cell table-data-p table_c">
+									<Link className="table_link c " to={`/product/${e.ProductID}?page=${page}`}>
 										{" "}
 										{e.ProductName}
 									</Link>
 								</td>
-								<td className="table_cell table-data-p"> {e.QuantityPerUnit}</td>
-								<td className="table_cell table-data-p ">${e.UnitPrice}</td>
-								<td className="table_cell table-data-p "> {e.UnitsInStock}</td>
-								<td className="table_cell table-data-p"> {e.UnitsOnOrder}</td>
+								<td className="table_cell table-data-p table_c"> {e.QuantityPerUnit}</td>
+								<td className="table_cell table-data-p table_c">${parseFloat(e.UnitPrice)}</td>
+								<td className="table_cell table-data-p table_c"> {e.UnitsInStock}</td>
+								<td className="table_cell table-data-p table_c"> {e.UnitsOnOrder}</td>
 							</tr>
 						))}
 					</tbody>
 				</table>
 			</div>
-			{
-				<Pagination
-					currentPage={page}
-					maxPages={pageCount}
-					handlePrevious={handlePrevious}
-					handleNext={handleNext}
-					setPage={setPage}
-				/>
-			}
+			{<Pagination currentPage={page} maxPages={pageCount} setPage={setPage} />}
 		</section>
 	);
 };

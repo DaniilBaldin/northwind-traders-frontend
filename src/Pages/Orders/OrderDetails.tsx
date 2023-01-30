@@ -36,52 +36,49 @@ export const OrderDetailsPage: FC = () => {
 				</div>
 				<div className="row">
 					<div className="column">
-						<h3>Customer Id</h3>
-						<Link className="table_link" to={`/customer/${data?.order.CustomerID}`}>
+						<h4 className="text_row">Customer Id</h4>
+						<Link className="table_link text_row" to={`/customer/${data?.order.CustomerID}`}>
 							{data?.order.CustomerID}
 						</Link>
-						<h3>Ship Name</h3>
-						<p>{data?.order.ShipName}</p>
-						<h3>Total Products</h3>
-						<p>{data?.order.TotalProducts}</p>
-						<h3>Total Quantity</h3>
-						<p>{data?.order.TotalProductsItems}</p>
-						<h3>Total Price</h3>
-						<p>${data?.order.TotalProductsPrice.toFixed(2)}</p>
-						<h3>Total Discount</h3>
-						<p>${data?.order.TotalProductsDiscount.toFixed(2)}</p>
-						<h3>Ship Via</h3>
-						<p>{data?.order.ShipViaCompanyName}</p>
-						<h3>Freight</h3>
-						<p>${data?.order.Freight}</p>
+						<h4 className="text_row">Ship Name</h4>
+						<p className="text_row">{data?.order.ShipName}</p>
+						<h4 className="text_row">Total Products</h4>
+						<p className="text_row">{data?.order.TotalProducts}</p>
+						<h4 className="text_row">Total Quantity</h4>
+						<p className="text_row">{data?.order.TotalProductsItems}</p>
+						<h4 className="text_row">Total Price</h4>
+						<p className="text_row">${data?.order.TotalProductsPrice.toFixed(2)}</p>
+						<h4 className="text_row">Total Discount</h4>
+						<p className="text_row">${data?.order.TotalProductsDiscount.toFixed(2)}</p>
+						<h4 className="text_row">Ship Via</h4>
+						<p className="text_row">{data?.order.ShipViaCompanyName}</p>
+						<h4 className="text_row">Freight</h4>
+						<p className="text_row">${data?.order.Freight}</p>
 					</div>
 					<div className="column">
-						<h3>Order Date</h3>
-						<p>{data?.order.OrderDate.split(" ")[0]}</p>
-						<h3>Required Date</h3>
-						<p>{data?.order.RequiredDate.split(" ")[0]}</p>
-						<h3>Shipped Date</h3>
-						<p>
+						<h4 className="text_row_sec">Order Date</h4>
+						<p className="text_row_sec">{data?.order.OrderDate.split(" ")[0]}</p>
+						<h4 className="text_row_sec">Required Date</h4>
+						<p className="text_row_sec">{data?.order.RequiredDate.split(" ")[0]}</p>
+						<h4 className="text_row_sec">Shipped Date</h4>
+						<p className="text_row_sec">
 							<>
 								{data?.order.ShippedDate
 									? data?.order.ShippedDate.split(" ")[0]
 									: data?.order.RequiredDate.split(" ")[0]}
 							</>
 						</p>
-						<h3>Ship City</h3>
-						<p>{data?.order.ShipCity}</p>
-						<h3>Ship Region</h3>
-						<p>{!data?.order.ShipRegion ? data?.order.ShipCountry : data?.order.ShipRegion}</p>
-						<h3>Ship Postal Code</h3>
-						<p>{data?.order.ShipPostalCode}</p>
-						<h3>Ship Country</h3>
-						<p>{data?.order.ShipCountry}</p>
+						<h4 className="text_row_sec">Ship City</h4>
+						<p className="text_row_sec">{data?.order.ShipCity}</p>
+						<h4 className="text_row_sec">Ship Region</h4>
+						<p className="text_row_sec">{!data?.order.ShipRegion ? data?.order.ShipCountry : data?.order.ShipRegion}</p>
+						<h4 className="text_row_sec">Ship Postal Code</h4>
+						<p className="text_row_sec">{data?.order.ShipPostalCode}</p>
+						<h4 className="text_row_sec">Ship Country</h4>
+						<p className="text_row_sec">{data?.order.ShipCountry}</p>
 					</div>
 				</div>
-				<div className="sup_header">
-					<BallotIcon />
-					Products In Order
-				</div>
+				<div className="sup_header">Products In Order</div>
 				<table className="table">
 					<thead>
 						<tr>
@@ -118,7 +115,7 @@ export const OrderDetailsPage: FC = () => {
 							!page ? navigate(-1) : navigate(`/orders?page=${page}`);
 						}}
 					>
-						<ArrowBackIcon />
+						<p className="bp">Go back</p>
 					</button>
 				</div>
 			</div>

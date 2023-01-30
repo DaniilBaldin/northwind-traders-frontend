@@ -44,40 +44,38 @@ export const EmployeeDetailsPage: FC = () => {
 				</div>
 				<div className="row">
 					<div className="column">
-						<h3>Name</h3>
-						<p>
+						<h4 className="text_row">Name</h4>
+						<p className="text_row">
 							{data?.FirstName} {data?.LastName}
 						</p>
-						<h3>Title</h3>
-						<p>{data?.Title}</p>
-						<h3>Title Of Courtesy</h3>
-						<p>{data?.TitleOfCourtesy}</p>
-						<h3>Birth Date</h3>
-						<p>{data?.BirthDate}</p>
-						<h3>Hire Date</h3>
-						<p>{data?.HireDate}</p>
-						<h3>Address</h3>
-						<p>{data?.Address}</p>
-						<h3>City</h3>
-						<p>{data?.City}</p>
+						<h4 className="text_row">Title</h4>
+						<p className="text_row">{data?.Title}</p>
+						<h4 className="text_row">Title Of Courtesy</h4>
+						<p className="text_row">{data?.TitleOfCourtesy}</p>
+						<h4 className="text_row">Birth Date</h4>
+						<p className="text_row">{data?.BirthDate}</p>
+						<h4 className="text_row">Hire Date</h4>
+						<p className="text_row">{data?.HireDate}</p>
+						<h4 className="text_row">Address</h4>
+						<p className="text_row">{data?.Address}</p>
+						<h4 className="text_row">City</h4>
+						<p className="text_row">{data?.City}</p>
 					</div>
 					<div className="column">
-						<h3>Postal Code</h3>
-						<p>{data?.PostalCode}</p>
-						<h3>Country</h3>
-						<p>{data?.Country}</p>
-						<h3>Home Phone</h3>
-						<p>{data?.HomePhone}</p>
-						<h3>Extension</h3>
-						<p>{data?.Extension}</p>
-						<h3>Address</h3>
-						<p>{data?.Address}</p>
-						<h3>Notes</h3>
-						<p>{data?.Notes}</p>
+						<h4 className="text_row_sec">Postal Code</h4>
+						<p className="text_row_sec">{data?.PostalCode}</p>
+						<h4 className="text_row_sec">Country</h4>
+						<p className="text_row_sec">{data?.Country}</p>
+						<h4 className="text_row_sec">Home Phone</h4>
+						<p className="text_row_sec">{data?.HomePhone}</p>
+						<h4 className="text_row_sec">Extension</h4>
+						<p className="text_row_sec">{data?.Extension}</p>
+						<h4 className="text_row_sec">Notes</h4>
+						<p className="text_row_sec">{data?.Notes}</p>
 						{data?.ReportsTo ? (
 							<>
-								<h3>Reports To</h3>
-								<Link className="empl_link" to={`/employee/${data?.ReportsTo}?page=${page}`}>
+								<h4 className="text_row_sec">Reports To</h4>
+								<Link className="empl_link text_row_sec" to={`/employee/${data?.ReportsTo}?page=${page}`}>
 									{data?.ReportFirstName} {data?.ReportLastName}
 								</Link>
 							</>
@@ -94,7 +92,7 @@ export const EmployeeDetailsPage: FC = () => {
 							navigate(-1);
 						}}
 					>
-						<ArrowBackIcon />
+						<p className="bp"> Go back</p>
 					</button>
 				</div>
 			</div>

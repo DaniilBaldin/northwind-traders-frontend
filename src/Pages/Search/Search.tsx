@@ -50,7 +50,7 @@ export const SearchPage = () => {
 	return (
 		<section className="table_container">
 			<div className="search_card">
-				<h3>Search In Database:</h3>
+				<h4 className="h4_search">Search In Database:</h4>
 				<form className="form" onSubmit={formSubmithandler}>
 					<input
 						className="input"
@@ -60,22 +60,22 @@ export const SearchPage = () => {
 						onChange={valueHandler}
 						value={value}
 					/>
-					<h3 className="h3_search">Tables</h3>
+					<h4 className="h4_search">Tables</h4>
 					<div className="small-label">
 						<input
 							type="radio"
-							name="grid"
+							name="radio-group"
 							id="products"
 							value="products"
 							defaultChecked
 							onChange={radioChangeHandler}
 						/>
-						Products
-						<input type="radio" name="grid" id="customers" value="customers" onChange={radioChangeHandler} />
-						Customers
+						<label htmlFor="products">Products</label>
+						<input type="radio" name="radio-group" id="customers" value="customers" onChange={radioChangeHandler} />
+						<label htmlFor="customers">Customers</label>
 					</div>
 				</form>
-				<h3>Search Results:</h3>
+				<h4 className="h4_search">Search Results:</h4>
 				<article>
 					{!data ? (
 						"No results"

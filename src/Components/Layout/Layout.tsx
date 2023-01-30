@@ -47,9 +47,9 @@ export const Layout: FC = () => {
 			<aside ref={asideRef} className={`sidebar ${isOpenAside ? "sidebar--active" : ""}`}>
 				<section className="sidebar_container">
 					<header className="sidebar_header">
-						<h1 className="sidebar_title">
+						<p className="sidebar_title">
 							<span className="sidebar_bold">Northwind</span> Traders
-						</h1>
+						</p>
 					</header>
 					<nav>
 						<h2 className="sidebar_sub">General</h2>
@@ -146,7 +146,7 @@ export const Layout: FC = () => {
 				</button>
 				<button className={`header_side_menu ${isOpenLinks ? "header_side_menu--open" : ""}`} onClick={linksHandler}>
 					<MenuIcon />
-					SQLite Links
+					<p className="hsm">SQLite Links</p>
 					<KeyboardArrowDownIcon />
 				</button>
 				<div className={`header_links ${isOpenLinks ? "header_links--open" : ""} `}>

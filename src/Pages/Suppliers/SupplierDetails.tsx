@@ -36,38 +36,38 @@ export const SupplierDetailsPage: FC = () => {
 				</div>
 				<div className="row">
 					<div className="column">
-						<h3>Company Name</h3>
-						<p>{data?.CompanyName}</p>
-						<h3>Contact Name</h3>
-						<p>{data?.ContactName}</p>
-						<h3>Contact Title</h3>
-						<p>{data?.ContactTitle}</p>
-						<h3>Address</h3>
-						<p>{data?.Address}</p>
-						<h3>City</h3>
-						<p>{data?.City}</p>
+						<h4 className="text_row">Company Name</h4>
+						<p className="text_row">{data?.CompanyName}</p>
+						<h4 className="text_row">Contact Name</h4>
+						<p className="text_row">{data?.ContactName}</p>
+						<h4 className="text_row">Contact Title</h4>
+						<p className="text_row">{data?.ContactTitle}</p>
+						<h4 className="text_row">Address</h4>
+						<p className="text_row">{data?.Address}</p>
+						<h4 className="text_row">City</h4>
+						<p className="text_row">{data?.City}</p>
 					</div>
 					<div className="column">
-						<h3>Region</h3>
-						<p>{data?.Region ? data?.Region : <br />}</p>
-						<h3>Postal Code</h3>
-						<p>{data?.PostalCode}</p>
-						<h3>Country</h3>
-						<p>{data?.Country}</p>
-						<h3>Phone</h3>
-						<p>{data?.Phone}</p>
+						<h4 className="text_row_sec">Region</h4>
+						<p className="text_row_sec">{data?.Region ? data?.Region : "-"}</p>
+						<h4 className="text_row_sec">Postal Code</h4>
+						<p className="text_row_sec">{data?.PostalCode}</p>
+						<h4 className="text_row_sec">Country</h4>
+						<p className="text_row_sec">{data?.Country}</p>
+						<h4 className="text_row_sec">Phone</h4>
+						<p className="text_row_sec">{data?.Phone}</p>
 						{data?.Fax ? (
 							<>
-								<h3>Fax</h3>
-								<p>{data?.Fax}</p>
+								<h4 className="text_row_sec">Fax</h4>
+								<p className="text_row_sec">{data?.Fax}</p>
 							</>
 						) : (
 							""
 						)}
 						{data?.HomePage ? (
 							<>
-								<h3>Home Page</h3>
-								<p>{data?.HomePage}</p>
+								<h4 className="text_row_sec">Home Page</h4>
+								<p className="text_row_sec">{data?.HomePage}</p>
 							</>
 						) : (
 							""
@@ -82,7 +82,7 @@ export const SupplierDetailsPage: FC = () => {
 							!page ? navigate(-1) : navigate(`/suppliers?page=${page}`);
 						}}
 					>
-						<ArrowBackIcon />
+						<p className="bp">Go back</p>
 					</button>
 				</div>
 			</div>

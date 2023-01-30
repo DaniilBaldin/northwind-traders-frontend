@@ -32,20 +32,6 @@ export const OrdersPage: FC = () => {
 		void getData();
 	}, [page]);
 
-	const handlePrevious = () => {
-		setPage((p) => {
-			if (p === 1) return p;
-			return p - 1;
-		});
-	};
-
-	const handleNext = () => {
-		setPage((p) => {
-			if (p === pageCount) return p;
-			return p + 1;
-		});
-	};
-
 	if (!data && loading) {
 		return <h4>Loading Orders Data.</h4>;
 	}
@@ -58,7 +44,7 @@ export const OrdersPage: FC = () => {
 		<section>
 			<div className="table_container">
 				<div className="table_header">
-					<p>Orders</p>
+					<p className="h">Orders</p>
 					<RedoIcon className="table_header-item" />
 				</div>
 				<table className="table">
@@ -72,47 +58,40 @@ export const OrdersPage: FC = () => {
 							<th className="table_cell">Ship Name</th>
 							<th className="table_cell">City</th>
 							<th className="table_cell">Country</th>
+							<th className="table_cell"></th>
 						</tr>
 					</thead>
 					<tbody>
 						{data?.orders.map((e) => (
 							<tr key={e.OrderId} className="table-row">
-								<td className="table_cell table-data-o">
+								<td className="table_cell table-data-o table_c">
 									<Link className="table_link" to={`/order/${e.OrderId}?page=${page}`}>
 										{e.OrderId}
 									</Link>
 								</td>
-								<td className="table_cell table-data-o">${e.TotalProductsPrice.toFixed(2)}</td>
-								<td className="table_cell table-data-o">{e.TotalProducts}</td>
-								<td className="table_cell table-data-o">{e.TotalProductsItems}</td>
+								<td className="table_cell table-data-o table_c">${e.TotalProductsPrice.toFixed(2)}</td>
+								<td className="table_cell table-data-o table_c">{e.TotalProducts}</td>
+								<td className="table_cell table-data-o table_c">{e.TotalProductsItems}</td>
 								<>
 									{e.ShippedDate ? (
-										<td className="table_cell table-data-o">
+										<td className="table_cell table-data-o table_c">
 											{new Date(e.ShippedDate).toISOString().replace(/T.*/, "")}
 										</td>
 									) : (
-										<td className="table_cell table-data-o">
+										<td className="table_cell table-data-o table_c">
 											{new Date(e.OrderDate).toISOString().replace(/T.*/, "")}
 										</td>
 									)}
 								</>
-								<td className="table_cell table-data-o">{e.ShipName}</td>
-								<td className="table_cell table-data-o">{e.ShipCity}</td>
-								<td className="table_cell table-data-o">{e.ShipCountry}</td>
+								<td className="table_cell table-data-o table_c">{e.ShipName}</td>
+								<td className="table_cell table-data-o table_c">{e.ShipCity}</td>
+								<td className="table_cell table-data-o table_c">{e.ShipCountry}</td>
 							</tr>
 						))}
 					</tbody>
 				</table>
 			</div>
-			{
-				<Pagination
-					currentPage={page}
-					maxPages={pageCount}
-					handlePrevious={handlePrevious}
-					handleNext={handleNext}
-					setPage={setPage}
-				/>
-			}
+			{<Pagination currentPage={page} maxPages={pageCount} setPage={setPage} />}
 		</section>
 	);
 };

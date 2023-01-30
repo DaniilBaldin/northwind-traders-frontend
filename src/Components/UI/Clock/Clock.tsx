@@ -17,7 +17,7 @@ export const Clock = () => {
 	}, []);
 	return (
 		<div className="clock">
-			<h2>{time}</h2>
+			<p>{time}</p>
 		</div>
 	);
 };

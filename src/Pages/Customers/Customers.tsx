@@ -32,20 +32,6 @@ export const CustomersPage: FC = () => {
 		void getData();
 	}, [page]);
 
-	const handlePrevious = () => {
-		setPage((p) => {
-			if (p === 1) return p;
-			return p - 1;
-		});
-	};
-
-	const handleNext = () => {
-		setPage((p) => {
-			if (p === pageCount) return p;
-			return p + 1;
-		});
-	};
-
 	if (!data && loading) {
 		return <h4>Loading Customers Data.</h4>;
 	}
@@ -58,7 +44,7 @@ export const CustomersPage: FC = () => {
 		<section>
 			<div className="table_container">
 				<div className="table_header">
-					<p>Customers</p>
+					<p className="h">Customers</p>
 					<RedoIcon className="table_header-item" />
 				</div>
 				<table className="table">
@@ -70,6 +56,7 @@ export const CustomersPage: FC = () => {
 							<th className="table_cell">Title</th>
 							<th className="table_cell">City</th>
 							<th className="table_cell">Country</th>
+							<th className="table_cell"></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -81,29 +68,21 @@ export const CustomersPage: FC = () => {
 										alt={`${e.ContactName.replace(/\s+/g, "-")}`}
 									/>
 								</td>
-								<td className="table_cell table-data-c">
+								<td className="table_cell table-data-c table_c">
 									<Link className="table_link " to={`/customer/${e.CustomerID}?page=${page}`}>
 										{e.CompanyName}
 									</Link>
 								</td>
-								<td className="table_cell table-data-c">{e.ContactName}</td>
-								<td className="table_cell table-data-c">{e.ContactTitle}</td>
-								<td className="table_cell table-data-c">{e.City}</td>
-								<td className="table_cell table-data-c">{e.Country}</td>
+								<td className="table_cell table-data-c table_c">{e.ContactName}</td>
+								<td className="table_cell table-data-c table_c">{e.ContactTitle}</td>
+								<td className="table_cell table-data-c table_c">{e.City}</td>
+								<td className="table_cell table-data-c table_c">{e.Country}</td>
 							</tr>
 						))}
 					</tbody>
 				</table>
 			</div>
-			{
-				<Pagination
-					currentPage={page}
-					maxPages={pageCount}
-					handlePrevious={handlePrevious}
-					handleNext={handleNext}
-					setPage={setPage}
-				/>
-			}
+			{<Pagination currentPage={page} maxPages={pageCount} setPage={setPage} />}
 		</section>
 	);
 };

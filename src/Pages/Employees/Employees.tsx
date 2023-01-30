@@ -33,20 +33,6 @@ export const EmployeesPage: FC = () => {
 		void getData();
 	}, [page]);
 
-	const handlePrevious = () => {
-		setPage((p) => {
-			if (p === 1) return p;
-			return p - 1;
-		});
-	};
-
-	const handleNext = () => {
-		setPage((p) => {
-			if (p === pageCount) return p;
-			return p + 1;
-		});
-	};
-
 	if (!data && loading) {
 		return <h4>Loading Employees Data.</h4>;
 	}
@@ -59,7 +45,7 @@ export const EmployeesPage: FC = () => {
 		<section>
 			<div className="table_container">
 				<div className="table_header">
-					<p>Employees</p>
+					<p className="h">Employees</p>
 					<RedoIcon className="table_header-item" />
 				</div>
 				<table className="table">
@@ -71,40 +57,33 @@ export const EmployeesPage: FC = () => {
 							<th className="table_cell">City</th>
 							<th className="table_cell">Phone</th>
 							<th className="table_cell">Country</th>
+							<th className="table_cell"></th>
 						</tr>
 					</thead>
 					<tbody>
 						{data?.orders.map((e) => (
 							<tr key={e.EmployeeID}>
-								<td className="table_image table_cell table_image-s">
+								<td className="table_image table_cell table_image-s ">
 									<img
 										src={`https://avatars.dicebear.com/v2/initials/${e.FirstName}-${e.LastName}.svg?radius=50`}
 										alt={`${e.FirstName}-${e.LastName}`}
 									/>
 								</td>
-								<td className="table_cell table-data-e">
+								<td className="table_cell table-data-e table_c">
 									<Link className="table_link" to={`/employee/${e.EmployeeID}?page=${page}`}>
 										{e.FirstName} {e.LastName}
 									</Link>
 								</td>
-								<td className="table_cell table-data-e">{e.Title}</td>
-								<td className="table_cell table-data-e">{e.City}</td>
-								<td className="table_cell table-data-e">{e.HomePhone}</td>
-								<td className="table_cell table-data-e">{e.Country}</td>
+								<td className="table_cell table-data-e table_c">{e.Title}</td>
+								<td className="table_cell table-data-e table_c">{e.City}</td>
+								<td className="table_cell table-data-e table_c">{e.HomePhone}</td>
+								<td className="table_cell table-data-e table_c">{e.Country}</td>
 							</tr>
 						))}
 					</tbody>
 				</table>
 			</div>
-			{
-				<Pagination
-					currentPage={page}
-					maxPages={pageCount}
-					handlePrevious={handlePrevious}
-					handleNext={handleNext}
-					setPage={setPage}
-				/>
-			}
+			{<Pagination currentPage={page} maxPages={pageCount} setPage={setPage} />}
 		</section>
 	);
 };

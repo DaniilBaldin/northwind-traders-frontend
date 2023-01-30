@@ -37,26 +37,26 @@ export const ProductsDetailsPage: FC = () => {
 				</div>
 				<div className="row">
 					<div className="column">
-						<h3>Product Name</h3>
-						<p>{data?.ProductName}</p>
-						<h3>Supplier</h3>
-						<Link className="prdct_link" to={`/supplier/${data?.SupplierID}`}>
+						<h4 className="text_row">Product Name</h4>
+						<p className="text_row">{data?.ProductName}</p>
+						<h4 className="text_row">Supplier</h4>
+						<Link className="prdct_link text_row" to={`/supplier/${data?.SupplierID}`}>
 							{data?.SupplierName}
 						</Link>
-						<h3>Quantity Per Unit</h3>
-						<p>{data?.QuantityPerUnit}</p>
-						<h3>Unit Price</h3>
-						<p>{data?.UnitPrice}</p>
+						<h4 className="text_row">Quantity Per Unit</h4>
+						<p className="text_row">{data?.QuantityPerUnit}</p>
+						<h4 className="text_row">Unit Price</h4>
+						<p className="text_row">${data?.UnitPrice}</p>
 					</div>
 					<div className="column">
-						<h3>Units In Stock</h3>
-						<p>{data?.UnitsInStock}</p>
-						<h3>Units On Order</h3>
-						<p>{data?.UnitsOnOrder}</p>
-						<h3>Reorder Level</h3>
-						<p>{data?.ReorderLevel}</p>
-						<h3>Discontinued</h3>
-						<p>{data?.Discontinued}</p>
+						<h4 className="text_row_sec">Units In Stock</h4>
+						<p className="text_row_sec">{data?.UnitsInStock}</p>
+						<h4 className="text_row_sec">Units On Order</h4>
+						<p className="text_row_sec">{data?.UnitsOnOrder}</p>
+						<h4 className="text_row_sec">Reorder Level</h4>
+						<p className="text_row_sec">{data?.ReorderLevel}</p>
+						<h4 className="text_row_sec">Discontinued</h4>
+						<p className="text_row_sec">{data?.Discontinued}</p>
 					</div>
 				</div>
 				<div className="prdct_footer">
@@ -67,7 +67,7 @@ export const ProductsDetailsPage: FC = () => {
 							!page ? navigate(-1) : navigate(`/products?page=${page}`);
 						}}
 					>
-						<ArrowBackIcon />
+						<p className="bp">Go back</p>
 					</button>
 				</div>
 			</div>
