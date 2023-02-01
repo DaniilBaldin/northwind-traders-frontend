@@ -35,7 +35,7 @@ export const SupplierDetailsPage: FC = () => {
 
 	return (
 		<section>
-			<div>
+			<div className="details_container">
 				<div className="sup_header">
 					<BallotIcon />
 					Supplier Information

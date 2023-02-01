@@ -49,7 +49,7 @@ export const EmployeeDetailsPage: FC = () => {
 
 	return (
 		<section>
-			<div>
+			<div className="details_container">
 				<div className="empl_header">
 					<BallotIcon />
 					Employee Information

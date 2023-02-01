@@ -37,7 +37,7 @@ export const CustomerDetailsPage: FC = () => {
 
 	return (
 		<section>
-			<div className="table_container">
+			<div className="details_container">
 				<div className="cstmr_header">
 					<BallotIcon />
 					Customer Information

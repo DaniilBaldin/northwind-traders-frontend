@@ -89,3 +89,11 @@
 .bp {
 	margin: 0;
 }
+
+@media screen and (max-width: 600px) {
+	.details_container {
+		overflow-x: hidden;
+		width: 100%;
+		zoom: 60%;
+	}
+}
