@@ -39,18 +39,4 @@ export type DashboardResponse = {
 			organization_name: string;
 		};
 	};
-	query_count: number;
-	select: number;
-	select_where: number;
-	select_left: number;
-	result_count: number;
-	logs: {
-		id: number;
-		result_count: string;
-		type: string;
-		date: string;
-		database_name: string;
-		time_passed: string;
-		query: string;
-	}[];
 };

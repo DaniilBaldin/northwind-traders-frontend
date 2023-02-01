@@ -8,9 +8,12 @@ import { ProductsResponse } from "../../Components/Types/Products";
 
 import { Pagination } from "../../Components/UI/Pagination/Pagination";
 
+import { addLog } from "../../Redux/actions";
+
 import "./Products.css";
 
 import RedoIcon from "@mui/icons-material/Redo";
+import { useDispatch } from "react-redux";
 
 export const ProductsPage = () => {
 	const [search] = useSearchParams();
@@ -20,6 +23,10 @@ export const ProductsPage = () => {
 	const url = import.meta.env.VITE_BACKEND_URL;
 	const slug = `/products?page=${page}`;
 	const { data, loading, error, apiRequest } = fetchHook<ProductsResponse>(`${url}${slug}`);
+
+	const dispatch = useDispatch();
+
+	const [logs, setLogs] = useState({});
 
 	useEffect(() => {
 		const getData = async () => {
@@ -31,6 +38,8 @@ export const ProductsPage = () => {
 	useEffect(() => {
 		if (data) {
 			setPageCount(data.pages);
+			setLogs(data.stats);
+			dispatch(addLog(logs));
 		}
 	}, [data]);
 

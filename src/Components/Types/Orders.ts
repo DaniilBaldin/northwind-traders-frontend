@@ -23,6 +23,17 @@ export type OrdersResponse = {
 		ShipCountry: string;
 		ProductId: string;
 	}[];
+	stats: {
+		queries: number;
+		results: number;
+		logs: {
+			type: string;
+			duration: string;
+			timestamp: string;
+			database: string;
+			query: string;
+		}[];
+	};
 };
 
 export type OrderDetailsResponse = {
@@ -64,4 +75,15 @@ export type OrderDetailsResponse = {
 		ReorderLevel: string;
 		Discontinued: string;
 	}[];
+	stats: {
+		queries: number;
+		results: number;
+		logs: {
+			type: string;
+			duration: string;
+			timestamp: string;
+			database: string;
+			query: string;
+		};
+	};
 };

@@ -8,6 +8,8 @@ import { productsSearchResponse } from "../../Components/Types/Search";
 import { customersSearchResponse } from "../../Components/Types/Search";
 
 import "./Search.css";
+import { useDispatch } from "react-redux";
+import { addLog } from "../../Redux/actions";
 
 export const SearchPage = () => {
 	const [value, setValue] = useState("");
@@ -18,6 +20,8 @@ export const SearchPage = () => {
 	const { data, loading, error, apiRequest } = fetchHook<productsSearchResponse & customersSearchResponse>(
 		`${url}${slug}`
 	);
+
+	const dispatch = useDispatch();
 
 	const valueHandler = (event: ChangeEvent<HTMLInputElement>) => {
 		setValue(event.target.value);
@@ -31,21 +35,24 @@ export const SearchPage = () => {
 		const getData = async () => {
 			await apiRequest();
 		};
+
 		void getData();
 	}, [searchTable]);
 
+	useEffect(() => {
+		if (data && searchTable === "products") {
+			dispatch(addLog((data as productsSearchResponse).stats));
+		}
+		if (data && searchTable === "customers") {
+			dispatch(addLog((data as customersSearchResponse).stats));
+		}
+	}, [data]);
+
 	const formSubmithandler = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
+
 		void apiRequest();
 	};
-
-	// if (!data && loading) {
-	// 	return <h4>Searching...</h4>;
-	// }
-
-	// if (error) {
-	// 	return <h4> An error has occured: {error}</h4>;
-	// }
 
 	return (
 		<section className="table_container">
@@ -82,7 +89,7 @@ export const SearchPage = () => {
 					) : (
 						<>
 							{searchTable === "products"
-								? (data as productsSearchResponse).map((e, index) => (
+								? (data as productsSearchResponse).search.map((e, index) => (
 										<article key={v4()}>
 											<Link className="table_link" to={`/product/${e.CategoryID}`}>
 												{e.ProductName}
@@ -93,7 +100,7 @@ export const SearchPage = () => {
 											</p>
 										</article>
 								  ))
-								: (data as customersSearchResponse).map((e, index) => (
+								: (data as customersSearchResponse).search.map((e, index) => (
 										<article key={v4()}>
 											<Link className="table_link" to={`/customer/${e.CustomerID}`}>
 												{e.CompanyName}

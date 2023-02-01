@@ -1,12 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { FC, useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import { fetchHook } from "../../Components/Hooks/fetchHook";
 import { OrdersResponse } from "../../Components/Types/Orders";
 import { Pagination } from "../../Components/UI/Pagination/Pagination";
 
 import "./Orders.css";
+
+import { addLog } from "../../Redux/actions";
 
 import RedoIcon from "@mui/icons-material/Redo";
 
@@ -19,9 +22,16 @@ export const OrdersPage: FC = () => {
 	const slug = `/orders?page=${page}`;
 	const { data, loading, error, apiRequest } = fetchHook<OrdersResponse>(`${url}${slug}`);
 
+	const dispatch = useDispatch();
+
+	const [logs, setLogs] = useState({});
+	console.log(logs);
+
 	useEffect(() => {
 		if (data) {
 			setPageCount(data.pages);
+			setLogs(data.stats);
+			dispatch(addLog(logs));
 		}
 	}, [data]);
 

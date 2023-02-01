@@ -1,8 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { FC, useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import { fetchHook } from "../../Components/Hooks/fetchHook";
+
+import { addLog } from "../../Redux/actions";
 
 import { SuppliersResponse } from "../../Components/Types/Suppliers";
 import { Pagination } from "../../Components/UI/Pagination/Pagination";
@@ -19,10 +22,15 @@ export const SuppliersPage: FC = () => {
 	const url = import.meta.env.VITE_BACKEND_URL;
 	const slug = `/suppliers?page=${page}`;
 	const { data, loading, error, apiRequest } = fetchHook<SuppliersResponse>(`${url}${slug}`);
+	const dispatch = useDispatch();
+
+	const [logs, setLogs] = useState({});
 
 	useEffect(() => {
 		if (data) {
 			setPageCount(data.pages);
+			setLogs(data.stats);
+			dispatch(addLog(logs));
 		}
 	}, [data]);
 
@@ -30,6 +38,7 @@ export const SuppliersPage: FC = () => {
 		const getData = async () => {
 			await apiRequest();
 		};
+
 		void getData();
 	}, [page]);
 

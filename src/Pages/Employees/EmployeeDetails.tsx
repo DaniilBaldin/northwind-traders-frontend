@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { FC, useEffect } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 
 import { fetchHook } from "../../Components/Hooks/fetchHook";
@@ -9,16 +9,21 @@ import { EmployeeResponse } from "../../Components/Types/Employees";
 import "./EmployeeDetails.css";
 
 import BallotIcon from "@mui/icons-material/Ballot";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { useDispatch } from "react-redux";
+import { addLog } from "../../Redux/actions";
 
 export const EmployeeDetailsPage: FC = () => {
 	const navigate = useNavigate();
 	const [search] = useSearchParams();
 	const { id } = useParams();
+	const dispatch = useDispatch();
+
 	const page = search.get("page");
 	const url = import.meta.env.VITE_BACKEND_URL;
 	const slug = `/employee?id=${id}`;
 	const { data, loading, error, apiRequest } = fetchHook<EmployeeResponse>(`${url}${slug}`);
+
+	const [logs, setLogs] = useState({});
 
 	useEffect(() => {
 		const getData = async () => {
@@ -26,6 +31,13 @@ export const EmployeeDetailsPage: FC = () => {
 		};
 		void getData();
 	}, [id]);
+
+	useEffect(() => {
+		if (data) {
+			setLogs(data.stats);
+			dispatch(addLog(logs));
+		}
+	}, [data]);
 
 	if (!data && loading) {
 		return <h4>Loading Employee Data.</h4>;
@@ -46,37 +58,37 @@ export const EmployeeDetailsPage: FC = () => {
 					<div className="column">
 						<h4 className="text_row">Name</h4>
 						<p className="text_row">
-							{data?.FirstName} {data?.LastName}
+							{data?.employee.FirstName} {data?.employee.LastName}
 						</p>
 						<h4 className="text_row">Title</h4>
-						<p className="text_row">{data?.Title}</p>
+						<p className="text_row">{data?.employee.Title}</p>
 						<h4 className="text_row">Title Of Courtesy</h4>
-						<p className="text_row">{data?.TitleOfCourtesy}</p>
+						<p className="text_row">{data?.employee.TitleOfCourtesy}</p>
 						<h4 className="text_row">Birth Date</h4>
-						<p className="text_row">{data?.BirthDate}</p>
+						<p className="text_row">{data?.employee.BirthDate}</p>
 						<h4 className="text_row">Hire Date</h4>
-						<p className="text_row">{data?.HireDate}</p>
+						<p className="text_row">{data?.employee.HireDate}</p>
 						<h4 className="text_row">Address</h4>
-						<p className="text_row">{data?.Address}</p>
+						<p className="text_row">{data?.employee.Address}</p>
 						<h4 className="text_row">City</h4>
-						<p className="text_row">{data?.City}</p>
+						<p className="text_row">{data?.employee.City}</p>
 					</div>
 					<div className="column">
 						<h4 className="text_row_sec">Postal Code</h4>
-						<p className="text_row_sec">{data?.PostalCode}</p>
+						<p className="text_row_sec">{data?.employee.PostalCode}</p>
 						<h4 className="text_row_sec">Country</h4>
-						<p className="text_row_sec">{data?.Country}</p>
+						<p className="text_row_sec">{data?.employee.Country}</p>
 						<h4 className="text_row_sec">Home Phone</h4>
-						<p className="text_row_sec">{data?.HomePhone}</p>
+						<p className="text_row_sec">{data?.employee.HomePhone}</p>
 						<h4 className="text_row_sec">Extension</h4>
-						<p className="text_row_sec">{data?.Extension}</p>
+						<p className="text_row_sec">{data?.employee.Extension}</p>
 						<h4 className="text_row_sec">Notes</h4>
-						<p className="text_row_sec">{data?.Notes}</p>
-						{data?.ReportsTo ? (
+						<p className="text_row_sec">{data?.employee.Notes}</p>
+						{data?.employee.ReportsTo ? (
 							<>
 								<h4 className="text_row_sec">Reports To</h4>
-								<Link className="empl_link text_row_sec" to={`/employee/${data?.ReportsTo}?page=${page}`}>
-									{data?.ReportFirstName} {data?.ReportLastName}
+								<Link className="empl_link text_row_sec" to={`/employee/${data?.employee.ReportsTo}?page=${page}`}>
+									{data?.employee.ReportFirstName} {data?.employee.ReportLastName}
 								</Link>
 							</>
 						) : (

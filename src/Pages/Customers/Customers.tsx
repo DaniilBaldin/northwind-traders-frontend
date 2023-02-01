@@ -9,6 +9,8 @@ import { CustomersResponse } from "../../Components/Types/Customers";
 // import "./Customers.css";
 
 import RedoIcon from "@mui/icons-material/Redo";
+import { useDispatch } from "react-redux";
+import { addLog } from "../../Redux/actions";
 
 export const CustomersPage: FC = () => {
 	const [search] = useSearchParams();
@@ -18,10 +20,15 @@ export const CustomersPage: FC = () => {
 	const url = import.meta.env.VITE_BACKEND_URL;
 	const slug = `/customers?page=${page}`;
 	const { data, loading, error, apiRequest } = fetchHook<CustomersResponse>(`${url}${slug}`);
+	const dispatch = useDispatch();
+
+	const [logs, setLogs] = useState({});
 
 	useEffect(() => {
 		if (data) {
 			setPageCount(data.pages);
+			setLogs(data.stats);
+			dispatch(addLog(logs));
 		}
 	}, [data]);
 
@@ -60,7 +67,7 @@ export const CustomersPage: FC = () => {
 						</tr>
 					</thead>
 					<tbody>
-						{data?.suppliers.map((e) => (
+						{data?.customers.map((e) => (
 							<tr key={e.id}>
 								<td className="table_image table_cell table_image-s">
 									<img

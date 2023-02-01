@@ -10,15 +10,24 @@ import "./OrderDetails.css";
 
 import BallotIcon from "@mui/icons-material/Ballot";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { useDispatch } from "react-redux";
+import { addLog } from "../../Redux/actions";
+import { v4 } from "uuid";
 
 export const OrderDetailsPage: FC = () => {
 	const navigate = useNavigate();
 	const [search] = useSearchParams();
 	const { id } = useParams();
+	const dispatch = useDispatch();
+
 	const page = search.get("page");
 	const url = import.meta.env.VITE_BACKEND_URL;
 	const slug = `/order?id=${id}`;
 	const { data, loading, error, apiRequest } = fetchHook<OrderDetailsResponse>(`${url}${slug}`);
+
+	if (data) {
+		dispatch(addLog(data?.stats));
+	}
 
 	if (!data && loading) {
 		return <h4>Loading Order Data.</h4>;
@@ -91,7 +100,7 @@ export const OrderDetailsPage: FC = () => {
 					</thead>
 					<tbody>
 						{data?.products.map((e) => (
-							<tr key={e.OrderID}>
+							<tr key={v4()}>
 								<td className="table_cell table-data-od">
 									<Link className="table_link" to={`/product/${e.ProductID}`}>
 										{e.ProductName}

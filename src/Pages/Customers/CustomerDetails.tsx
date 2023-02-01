@@ -9,15 +9,23 @@ import "./CustomerDetails.css";
 
 import BallotIcon from "@mui/icons-material/Ballot";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { useDispatch } from "react-redux";
+import { addLog } from "../../Redux/actions";
 
 export const CustomerDetailsPage: FC = () => {
 	const navigate = useNavigate();
 	const [search] = useSearchParams();
 	const { id } = useParams();
+	const dispatch = useDispatch();
+
 	const page = search.get("page");
 	const url = import.meta.env.VITE_BACKEND_URL;
 	const slug = `/customer?id=${id}`;
 	const { data, loading, error, apiRequest } = fetchHook<CustomerDetailsresponse>(`${url}${slug}`);
+
+	if (data) {
+		dispatch(addLog(data?.stats));
+	}
 
 	if (!data && loading) {
 		return <h4>Loading Customer Data.</h4>;
@@ -37,27 +45,27 @@ export const CustomerDetailsPage: FC = () => {
 				<div className="row">
 					<div className="column">
 						<h4 className="text_row">Company Name</h4>
-						<p className="text_row">{data?.CompanyName}</p>
+						<p className="text_row">{data?.customer.CompanyName}</p>
 						<h4 className="text_row">Contact Name</h4>
-						<p className="text_row">{data?.ContactName}</p>
+						<p className="text_row">{data?.customer.ContactName}</p>
 						<h4 className="text_row">Contact Title</h4>
-						<p className="text_row">{data?.ContactTitle}</p>
+						<p className="text_row">{data?.customer.ContactTitle}</p>
 						<h4 className="text_row">Address</h4>
-						<p className="text_row">{data?.Address}</p>
+						<p className="text_row">{data?.customer.Address}</p>
 						<h4 className="text_row">City</h4>
-						<p className="text_row">{data?.City}</p>
+						<p className="text_row">{data?.customer.City}</p>
 					</div>
 					<div className="column">
 						<h4 className="text_row_sec">Postal Code</h4>
-						<p className="text_row_sec">{data?.PostalCode}</p>
+						<p className="text_row_sec">{data?.customer.PostalCode}</p>
 						<h4 className="text_row_sec">Region</h4>
-						<p className="text_row_sec">{data?.Region}</p>
+						<p className="text_row_sec">{data?.customer.Region}</p>
 						<h4 className="text_row_sec">Country</h4>
-						<p className="text_row_sec">{data?.Country}</p>
+						<p className="text_row_sec">{data?.customer.Country}</p>
 						<h4 className="text_row_sec">Phone</h4>
-						<p className="text_row_sec">{data?.Phone}</p>
+						<p className="text_row_sec">{data?.customer.Phone}</p>
 						<h4 className="text_row_sec">Fax</h4>
-						<p className="text_row_sec">{data?.Fax}</p>
+						<p className="text_row_sec">{data?.customer.Fax}</p>
 					</div>
 				</div>
 				<div className="cstmr_footer">

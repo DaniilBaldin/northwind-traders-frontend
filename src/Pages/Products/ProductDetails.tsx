@@ -9,16 +9,23 @@ import { ProductResponse } from "../../Components/Types/Products";
 import "./ProductDetails.css";
 
 import BallotIcon from "@mui/icons-material/Ballot";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { useDispatch } from "react-redux";
+import { addLog } from "../../Redux/actions";
 
 export const ProductsDetailsPage: FC = () => {
 	const navigate = useNavigate();
 	const [search] = useSearchParams();
 	const { id } = useParams();
+	const dispatch = useDispatch();
+
 	const page = search.get("page");
 	const url = import.meta.env.VITE_BACKEND_URL;
 	const slug = `/product?id=${id}`;
 	const { data, loading, error, apiRequest } = fetchHook<ProductResponse>(`${url}${slug}`);
+
+	if (data) {
+		dispatch(addLog(data?.stats));
+	}
 
 	if (!data && loading) {
 		return <h4>Loading Product Data.</h4>;
@@ -38,25 +45,25 @@ export const ProductsDetailsPage: FC = () => {
 				<div className="row">
 					<div className="column">
 						<h4 className="text_row">Product Name</h4>
-						<p className="text_row">{data?.ProductName}</p>
+						<p className="text_row">{data?.product.ProductName}</p>
 						<h4 className="text_row">Supplier</h4>
-						<Link className="prdct_link text_row" to={`/supplier/${data?.SupplierID}`}>
-							{data?.SupplierName}
+						<Link className="prdct_link text_row" to={`/supplier/${data?.product.SupplierID}`}>
+							{data?.product.SupplierName}
 						</Link>
 						<h4 className="text_row">Quantity Per Unit</h4>
-						<p className="text_row">{data?.QuantityPerUnit}</p>
+						<p className="text_row">{data?.product.QuantityPerUnit}</p>
 						<h4 className="text_row">Unit Price</h4>
-						<p className="text_row">${data?.UnitPrice}</p>
+						<p className="text_row">${data?.product.UnitPrice}</p>
 					</div>
 					<div className="column">
 						<h4 className="text_row_sec">Units In Stock</h4>
-						<p className="text_row_sec">{data?.UnitsInStock}</p>
+						<p className="text_row_sec">{data?.product.UnitsInStock}</p>
 						<h4 className="text_row_sec">Units On Order</h4>
-						<p className="text_row_sec">{data?.UnitsOnOrder}</p>
+						<p className="text_row_sec">{data?.product.UnitsOnOrder}</p>
 						<h4 className="text_row_sec">Reorder Level</h4>
-						<p className="text_row_sec">{data?.ReorderLevel}</p>
+						<p className="text_row_sec">{data?.product.ReorderLevel}</p>
 						<h4 className="text_row_sec">Discontinued</h4>
-						<p className="text_row_sec">{data?.Discontinued}</p>
+						<p className="text_row_sec">{data?.product.Discontinued}</p>
 					</div>
 				</div>
 				<div className="prdct_footer">

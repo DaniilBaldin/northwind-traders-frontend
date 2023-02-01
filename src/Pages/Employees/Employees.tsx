@@ -9,6 +9,8 @@ import { EmployeesResponse } from "../../Components/Types/Employees";
 import RedoIcon from "@mui/icons-material/Redo";
 
 import "./Employees.css";
+import { useDispatch } from "react-redux";
+import { addLog } from "../../Redux/actions";
 
 export const EmployeesPage: FC = () => {
 	const [search] = useSearchParams();
@@ -20,9 +22,15 @@ export const EmployeesPage: FC = () => {
 
 	const { data, loading, error, apiRequest } = fetchHook<EmployeesResponse>(`${url}${slug}`);
 
+	const dispatch = useDispatch();
+
+	const [logs, setLogs] = useState({});
+
 	useEffect(() => {
 		if (data) {
 			setPageCount(data.pages);
+			setLogs(data.stats);
+			dispatch(addLog(logs));
 		}
 	}, [data]);
 
@@ -61,7 +69,7 @@ export const EmployeesPage: FC = () => {
 						</tr>
 					</thead>
 					<tbody>
-						{data?.orders.map((e) => (
+						{data?.employees.map((e) => (
 							<tr key={e.EmployeeID}>
 								<td className="table_image table_cell table_image-s ">
 									<img
