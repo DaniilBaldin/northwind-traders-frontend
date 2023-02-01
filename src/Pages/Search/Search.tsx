@@ -17,9 +17,7 @@ export const SearchPage = () => {
 	const url = import.meta.env.VITE_BACKEND_URL;
 
 	const slug = `/search?q=${value}&table=${searchTable}`;
-	const { data, loading, error, apiRequest } = fetchHook<productsSearchResponse & customersSearchResponse>(
-		`${url}${slug}`
-	);
+	const { data, apiRequest } = fetchHook<productsSearchResponse & customersSearchResponse>(`${url}${slug}`);
 
 	const dispatch = useDispatch();
 
@@ -57,7 +55,7 @@ export const SearchPage = () => {
 	return (
 		<section className="table_container">
 			<div className="search_card">
-				<h4 className="h4_search">Search In Database:</h4>
+				<h4 className="h4_search">Search Database</h4>
 				<form className="form" onSubmit={formSubmithandler}>
 					<input
 						className="input"
@@ -82,7 +80,7 @@ export const SearchPage = () => {
 						<label htmlFor="customers">Customers</label>
 					</div>
 				</form>
-				<h4 className="h4_search">Search Results:</h4>
+				<h4 className="h4_bold">Search results</h4>
 				<article>
 					{!data ? (
 						"No results"
@@ -91,7 +89,7 @@ export const SearchPage = () => {
 							{searchTable === "products"
 								? (data as productsSearchResponse).search.map((e, index) => (
 										<article key={v4()}>
-											<Link className="table_link" to={`/product/${e.CategoryID}`}>
+											<Link className="search_link" to={`/product/${e.CategoryID}`}>
 												{e.ProductName}
 											</Link>
 											<p className="text_grey">
@@ -102,7 +100,7 @@ export const SearchPage = () => {
 								  ))
 								: (data as customersSearchResponse).search.map((e, index) => (
 										<article key={v4()}>
-											<Link className="table_link" to={`/customer/${e.CustomerID}`}>
+											<Link className="search_link" to={`/customer/${e.CustomerID}`}>
 												{e.CompanyName}
 											</Link>
 											<p className="text_grey">
