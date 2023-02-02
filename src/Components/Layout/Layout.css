@@ -45,10 +45,6 @@
 	list-style-type: none;
 }
 
-/* .sidebar_li {
-	transition: background-color 0.2s ease;
-} */
-
 .sidebar_li:hover {
 	background-color: #374151;
 }

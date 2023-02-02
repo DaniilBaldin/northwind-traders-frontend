@@ -23,7 +23,6 @@
 	padding-top: 0rem;
 	font-size: 1.25rem;
 	line-height: 1.75rem;
-	/* font-weight: 400; */
 	margin: 0;
 }
 
@@ -31,7 +30,6 @@
 	padding-top: 0rem;
 	font-size: 0.75rem;
 	line-height: 1rem;
-	/* font-weight: 400; */
 	margin: 0;
 }
 
@@ -48,7 +46,7 @@
 	line-height: 1.25rem;
 	margin: 0;
 	font-weight: 400;
-	font-family: "Courier New", Courier, monospace;
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
 }
 
 .log {

@@ -8,7 +8,6 @@ import { CustomerDetailsresponse } from "../../Components/Types/Customers";
 import "./CustomerDetails.css";
 
 import BallotIcon from "@mui/icons-material/Ballot";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useDispatch } from "react-redux";
 import { addLog } from "../../Redux/actions";
 

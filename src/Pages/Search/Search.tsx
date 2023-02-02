@@ -109,28 +109,6 @@ export const SearchPage = () => {
 											</p>
 										</article>
 								  ))}
-							{/* {(data as productsSearchResponse)
-								? (data as productsSearchResponse).map((e, index) => (
-										<article key={v4()}>
-											<Link className="table_link" to={`/product/${e.CategoryID}`}>
-												{e.ProductName}
-											</Link>
-											<p className="text_grey">
-												#{index + 1}, Qt. per unit:{e.QuantityPerUnit}, Price: ${e.UnitPrice}, Stock:{e.UnitsInStock}{" "}
-												pcs.{" "}
-											</p>
-										</article>
-								  ))
-								: (data as customersSearchResponse).map((e, index) => (
-										<article key={v4()}>
-											<Link className="table_link" to={`/customer/${e.CustomerID}`}>
-												{e.CompanyName}
-											</Link>
-											<p className="text_grey">
-												#{index + 1}, Contact: {e.ContactName}, Title: {e.ContactTitle}, Phone:{e.Phone}.
-											</p>
-										</article>
-								  ))} */}
 						</>
 					)}
 				</article>

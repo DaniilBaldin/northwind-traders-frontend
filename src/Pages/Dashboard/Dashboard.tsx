@@ -12,7 +12,6 @@ import "./Dashboard.css";
 export const DashboardPage: FC = () => {
 	const globalStats = useSelector((state) => (state as any).logsReducer);
 	const unique = globalStats.logs.filter((m: any) => m.payload.logs);
-	// console.log(unique);
 	const globalLogs: any[] = [];
 	let select = 0;
 	let select_where = 0;
@@ -57,7 +56,6 @@ export const DashboardPage: FC = () => {
 			}
 		}
 	});
-	// console.log(globalLogs);
 
 	const url = import.meta.env.VITE_BACKEND_URL;
 	const slug = "/dashboard";

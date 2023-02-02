@@ -6,7 +6,7 @@ import { fetchHook } from "../../Components/Hooks/fetchHook";
 import { Pagination } from "../../Components/UI/Pagination/Pagination";
 import { CustomersResponse } from "../../Components/Types/Customers";
 
-// import "./Customers.css";
+import "./Customers.css";
 
 import RedoIcon from "@mui/icons-material/Redo";
 import { useDispatch } from "react-redux";
