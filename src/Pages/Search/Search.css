@@ -30,14 +30,16 @@
 	font-size: 14px;
 	border: 1px solid black;
 	border-radius: inherit;
+	background-color: white;
 }
 
 /* .input[type="search"]::placeholder {
-	color: grey;
+	background-color: white;
 } */
 
 .input[type="search"]:focus {
 	border: 3px solid #85bee4;
+	background-color: white;
 	outline: none;
 }
 

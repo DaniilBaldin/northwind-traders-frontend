@@ -62,6 +62,7 @@ export const SearchPage = () => {
 						type="search"
 						id="srch"
 						placeholder="Enter keyword..."
+						autoComplete="off"
 						onChange={valueHandler}
 						value={value}
 					/>
